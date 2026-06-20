@@ -33,18 +33,18 @@ router.get(
   getDashboardStats
 );
 
-// User Management (Admin only)
+// User Management (Admin + Instructor can list; Admin can update/delete)
 router.get(
   "/",
   authMiddleware,
-  roleMiddleware("Admin"),
+  roleMiddleware("Admin", "Instructor"),
   getAllUsers
 );
 
 router.put(
   "/:id",
   authMiddleware,
-  roleMiddleware("Admin"),
+  roleMiddleware("Admin", "Instructor"),
   updateUser
 );
 
