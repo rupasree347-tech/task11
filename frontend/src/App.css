@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+}
+
+.auth-container {
+  width: 400px;
+  margin: 60px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.auth-container h2 {
+  margin-bottom: 20px;
+}
+
+.auth-helper-text {
+  color: #555;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.auth-container input,
+.auth-container select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  cursor: pointer;
+  background: #1f2937;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.auth-container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-container p {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.form-error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.form-success {
+  color: #16a34a;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ===================== NAVBAR ===================== */
+
+.navbar {
+  height: 60px;
+  background: #1f2937;
+  color: white;
+  padding: 15px 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.menu-toggle-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.menu-bar {
+  width: 22px;
+  height: 2px;
+  background: white;
+  display: block;
+  border-radius: 2px;
+}
+
+.logout-btn {
+  padding: 8px 15px;
+  cursor: pointer;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+/* ===================== LAYOUT ===================== */
+
+.layout {
+  display: flex;
+  position: relative;
+}
+
+.sidebar {
+  width: 220px;
+  min-height: calc(100vh - 60px);
+  background: #111827;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  min-width: 0;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* ===================== TABLES ===================== */
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.data-table select {
+  padding: 6px 8px;
+}
+
+.status-btn {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ===================== MOBILE ===================== */
+
+@media (max-width: 768px) {
+
+  .menu-toggle-btn {
+    display: flex;
+  }
+
+  .layout {
+    flex-direction: row;
+  }
+
+  /* Sidebar becomes an off-canvas drawer that slides in from the left,
+     triggered by the navbar hamburger button. */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: -260px;
+    width: 220px;
+    height: calc(100vh - 60px);
+    z-index: 1050;
+    transition: left 0.25s ease-in-out;
+    overflow-y: auto;
+  }
+
+  .sidebar.sidebar-open {
+    left: 0;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1040;
+  }
+
+  .content {
+    padding: 16px;
+    width: 100%;
+  }
+
+  .auth-container {
+    width: 92%;
+    margin: 30px auto;
+    padding: 20px;
+  }
+}
